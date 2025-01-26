@@ -47,7 +47,9 @@ async function handleCommand(command) {
         console.log('Adding student...')
         const [name, year, email, specialization] = args
         // --------> WRITE YOUR CODE BELOW
-
+        const student = new Student(name, year, email, specialization);
+        studentManagementSystem.addStudent(student);
+        console.log('Updated list:\n' + studentManagementSystem.displayStudents() + "\n");
         // --------> WRITE YOUR CODE ABOVE
         break;
 
@@ -62,7 +64,9 @@ async function handleCommand(command) {
        */
       console.log('Removing student...')
       // --------> WRITE YOUR CODE BELOW
-      
+      const [removeEmail] = args;
+      studentManagementSystem.removeStudent(removeEmail);
+      console.log('Updated list:\n' + studentManagementSystem.displayStudents() + "\n");
       // --------> WRITE YOUR CODE ABOVE
       break;
 
@@ -75,7 +79,7 @@ async function handleCommand(command) {
        */
       console.log('Displaying students...')
       // --------> WRITE YOUR CODE BELOW
-
+      console.log(studentManagementSystem.displayStudents() + "\n");
       // --------> WRITE YOUR CODE ABOVE
       break;
 
@@ -91,7 +95,14 @@ async function handleCommand(command) {
        */
       console.log('Finding student...')
       // --------> WRITE YOUR CODE BELOW
-      
+      const [findEmail] = args;
+      const searchResult = studentManagementSystem.findStudent(findEmail);
+      if (searchResult === -1) {
+        console.log('Student does not exist\n');
+      }
+      else {
+        console.log('Student found:\n', searchResult.getName() + "\n");
+      }
       // --------> WRITE YOUR CODE ABOVE
       break;
 
@@ -106,8 +117,13 @@ async function handleCommand(command) {
        */
       console.log('Saving data...')
       // --------> WRITE YOUR CODE BELOW
-
+      const [saveFileName] = args;
+      studentManagementSystem.saveToJson(saveFileName)
+       .then(() => {
+          console.log("Data saved\n");
+       });
       // --------> WRITE YOUR CODE ABOVE
+      break;
 
     case "load":
       /**
@@ -120,7 +136,11 @@ async function handleCommand(command) {
        */
       console.log('Loading data...')
       // --------> WRITE YOUR CODE BELOW
-
+      const [loadFileName] = args;
+      studentManagementSystem.loadFromJSON(loadFileName)
+       .then(() => {
+          console.log("Data loaded\n" + studentManagementSystem.displayStudents() + "\n");
+       });
       // --------> WRITE YOUR CODE ABOVE
       break;
 
@@ -134,7 +154,8 @@ async function handleCommand(command) {
        */
       console.log('Clearing data...')
       // --------> WRITE YOUR CODE BELOW
-
+      studentManagementSystem.clearStudents();
+      console.log('Data cleared\n');
       // --------> WRITE YOUR CODE ABOVE
       break;
 
