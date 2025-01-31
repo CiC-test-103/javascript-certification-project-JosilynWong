@@ -97,6 +97,8 @@ class LinkedList {
         // A match is found at the head, so update the head
         if (this.head === currentNode) {
           this.head = currentNode.next;
+          // Clean up the removed node?
+          currentNode = null;
         }
         // A match is found at the tail, so update the tail
         if (this.tail === currentNode) {
@@ -248,7 +250,7 @@ class LinkedList {
     // First get an array of students sorted by name
     const studentArray = this.#sortStudentsByName;
 
-    // Filter the array by minimum age
+    // Filter the array by minimum year
     if (studentArray.length > 0) {
       return studentArray.filter((student) => student.getYear() >= minYear);
     }
