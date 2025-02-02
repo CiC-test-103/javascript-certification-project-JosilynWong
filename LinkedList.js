@@ -97,8 +97,6 @@ class LinkedList {
         // A match is found at the head, so update the head
         if (this.head === currentNode) {
           this.head = currentNode.next;
-          // Clean up the removed node?
-          currentNode = null;
         }
         // A match is found at the tail, so update the tail
         if (this.tail === currentNode) {
