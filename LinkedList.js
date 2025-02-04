@@ -225,14 +225,34 @@ class LinkedList {
     // TODO
 
     // First get an array of students sorted by name
-    const studenArray = this.#sortStudentsByName();
+    /*const studenArray = this.#sortStudentsByName();
 
     // Filter the array by specialization
     if (studenArray.length > 0) {
       return studenArray.filter((student) => 
         student.getSpecialization().toLowerCase() === specialization.toLowerCase());
     }
-    return [];
+    return [];*/
+
+    // Set up variables for going through the LinkedList
+    const studentsArray = [];
+    let currentNode = this.head;
+
+    // Collect all students matching specialization to an array
+    while (currentNode) {
+      const student = currentNode.data;
+      if (student.getSpecialization().toLowerCase() === specialization.toLowerCase()) {
+        studentsArray.push(student);
+      }
+      currentNode = currentNode.next;
+    }
+
+    // Sort the array alphabetically
+    if (studentsArray.length > 0) {
+      studentsArray.sort((student1, student2) => 
+        student1.getName().localeCompare(student2.getName()));
+    }
+    return studentsArray;
   }
 
   /**
@@ -246,13 +266,33 @@ class LinkedList {
     // TODO
 
     // First get an array of students sorted by name
-    const studentArray = this.#sortStudentsByName;
+    /*const studentArray = this.#sortStudentsByName;
 
     // Filter the array by minimum year
     if (studentArray.length > 0) {
       return studentArray.filter((student) => student.getYear() >= minYear);
     }
-    return [];
+    return [];*/
+
+    // Set up variables for going through the LinkedList
+    const studentsArray = [];
+    let currentNode = this.head;
+
+    // Collect all students who are at least minYear to an array
+    while (currentNode) {
+      const student = currentNode.data;
+      if (student.getYear() >= minYear) {
+        studentsArray.push(student);
+      }
+      currentNode = currentNode.next;
+    }
+
+    // Sort the array alphabetically
+    if (studentsArray.length > 0) {
+      studentsArray.sort((student1, student2) => 
+        student1.getName().localeCompare(student2.getName()));
+    }
+    return studentsArray;  
   }
 
   /**
