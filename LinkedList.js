@@ -207,7 +207,7 @@ class LinkedList {
     }
 
     // Sort the array based on ascending student name order
-    if (studentsArray.length > 0) {
+    if (studentsArray.length > 1) {
       studentsArray.sort((student1, student2) => 
         student1.getName().localeCompare(student2.getName()));
     }
@@ -248,7 +248,7 @@ class LinkedList {
     }
 
     // Sort the array alphabetically
-    if (studentsArray.length > 0) {
+    if (studentsArray.length > 1) {
       studentsArray.sort((student1, student2) => 
         student1.getName().localeCompare(student2.getName()));
     }
@@ -288,7 +288,7 @@ class LinkedList {
     }
 
     // Sort the array alphabetically
-    if (studentsArray.length > 0) {
+    if (studentsArray.length > 1) {
       studentsArray.sort((student1, student2) => 
         student1.getName().localeCompare(student2.getName()));
     }
