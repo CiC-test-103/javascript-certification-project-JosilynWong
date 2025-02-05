@@ -304,7 +304,7 @@ class LinkedList {
     // TODO
 
     // Set up variables for going through the linkedList
-    let objectsArray = [];
+    const objectsArray = [];
     let currentNode = this.head;
 
     // Generate an array of objects representing student properties
