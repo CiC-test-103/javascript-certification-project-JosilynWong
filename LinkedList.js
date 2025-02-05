@@ -342,7 +342,7 @@ class LinkedList {
     // Read JSON string from file.
     const fs = require('fs').promises;
     try {
-      const jsonString = await fs.readFile(fileName, 'utf8')
+      const jsonString = await fs.readFile(fileName, 'utf8');
 
       // Turn the JSON string into an array of objects
       const objectsArray = JSON.parse(jsonString);
